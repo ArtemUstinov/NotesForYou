@@ -12,6 +12,11 @@ class MainTableViewController: UITableViewController {
     
     var tasks = [String]()
     
+    //MARK:- IBOutlet:
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    
     //MARK:- IBActions:
     
     @IBAction func saveNote(_ sender: UIBarButtonItem) {
@@ -41,16 +46,30 @@ class MainTableViewController: UITableViewController {
         
         present(alertController, animated: true)
     }
+    
+    @IBAction func scPressed(_ sender: UISegmentedControl) {
+        
+    }
+    
      
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupSC()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    private func setupSC() {
+        segmentedControl.removeAllSegments()
+        segmentedControl.insertSegment(withTitle: "Book", at: 0, animated: true)
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.insertSegment(withTitle: "Book", at: 1, animated: true)
+        segmentedControl.insertSegment(withTitle: "Music", at: 2, animated: true)
     }
 
     // MARK: - Table view data source
