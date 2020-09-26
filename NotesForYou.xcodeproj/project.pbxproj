@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC2A79DC251F4D19000899D3 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2A79DB251F4D19000899D3 /* Profile.swift */; };
 		AC2F5610251E54E900E53B0D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AC2F560F251E54E800E53B0D /* .gitignore */; };
 		AC825870251263C600C62660 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC82586F251263C600C62660 /* AppDelegate.swift */; };
 		AC825872251263C600C62660 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC825871251263C600C62660 /* SceneDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC2A79DB251F4D19000899D3 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		AC2F560F251E54E800E53B0D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		AC82586C251263C600C62660 /* NotesForYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesForYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC82586F251263C600C62660 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +48,6 @@
 		AC825863251263C600C62660 = {
 			isa = PBXGroup;
 			children = (
-				AC2F560F251E54E800E53B0D /* .gitignore */,
 				AC82586E251263C600C62660 /* NotesForYou */,
 				AC82586D251263C600C62660 /* Products */,
 			);
@@ -68,6 +69,7 @@
 				AC82587B251263C900C62660 /* Assets.xcassets */,
 				AC825880251263C900C62660 /* Info.plist */,
 				AC825878251263C600C62660 /* NotesForYou.xcdatamodeld */,
+				AC2F560F251E54E800E53B0D /* .gitignore */,
 			);
 			path = NotesForYou;
 			sourceTree = "<group>";
@@ -84,6 +86,7 @@
 		AC8258892512648000C62660 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AC82587D251263C900C62660 /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				AC825875251263C600C62660 /* Main.storyboard */,
-				AC82587D251263C900C62660 /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -126,6 +128,7 @@
 		AC82588E251264A200C62660 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AC2A79DB251F4D19000899D3 /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACFE43BE251E337200735AFA /* AddNotes.swift in Sources */,
+				AC2A79DC251F4D19000899D3 /* Profile.swift in Sources */,
 				AC8258872512646A00C62660 /* MainTableViewController.swift in Sources */,
 				AC82587A251263C600C62660 /* NotesForYou.xcdatamodeld in Sources */,
 				AC825870251263C600C62660 /* AppDelegate.swift in Sources */,

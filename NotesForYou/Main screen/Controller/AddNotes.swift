@@ -11,10 +11,12 @@ import CoreData
 
 class AddNotes {
     
-    let mainVC = UIApplication.shared.delegate as? MainTableViewController
+    //let mainVC = MainTableViewController()
 
+    weak var mainVC: MainTableViewController?
     
-     func setupAlert() {
+    
+     public func setupAlert() {
             
             let alertController = UIAlertController(title: "New note", message: "Please add new note", preferredStyle: .alert)
             
@@ -82,7 +84,7 @@ class AddNotes {
         do {
             try context.save()
 //            books.append(noteObject)
-            mainVC?.books.append(noteObject)
+            mainVC?.profile.books.append(noteObject)
         } catch let error as NSError {
             print(error.localizedDescription)
         }
@@ -99,7 +101,7 @@ class AddNotes {
         do {
             try context.save()
 //            films.append(noteObject)
-            mainVC?.films.append(noteObject)
+            mainVC?.profile.films.append(noteObject)
         } catch let error as NSError {
             print(error.localizedDescription)
         }
@@ -116,7 +118,7 @@ class AddNotes {
         do {
             try context.save()
 //            musics.append(noteObject)
-            mainVC?.musics.append(noteObject)
+            mainVC?.profile.musics.append(noteObject)
         } catch let error as NSError {
             print(error.localizedDescription)
         }

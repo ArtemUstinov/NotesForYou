@@ -11,29 +11,35 @@ import CoreData
 
 class MainTableViewController: UITableViewController {
     
-    var books = [Book]()
-    var films = [Film]()
-    var musics = [Music]()
+    var profile = Profile(books: [Book](), films: [Film](), musics: [Music]())
     
-    let addNotes = UIApplication.shared.delegate as? AddNotes
-    let addNote = AddNotes()
+//    var books = [Book]()
+//    var films = [Film]()
+//    var musics = [Music]()
+    
+//    let addNotes = UIApplication.shared.delegate as? AddNotes
+    
+    let addNotes = AddNotes()
     
     
     //MARK:- IBOutlet:
     
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var segmentedControl: UISegmentedControl! {
+        didSet {
+            segmentedControl.removeAllSegments()
+            segmentedControl.insertSegment(withTitle: "Book", at: 0, animated: true)
+            segmentedControl.selectedSegmentIndex = 0
+            segmentedControl.insertSegment(withTitle: "Film", at: 1, animated: true)
+            segmentedControl.insertSegment(withTitle: "Music", at: 2, animated: true)
+        }
+    }
 
     //MARK:- IBActions:
     
     @IBAction func addNote(_ sender: UIBarButtonItem) {
         
-//        if let setupAlert = addNotes?.setupAlert() {
-//            return setupAlert
-//        } else {
-//            return print("error")
-//        }
-        addNote.setupAlert()
-        
+        addNotes.setupAlert()
+        tableView.reloadData()
     }
     
     @IBAction func scPressed(_ sender: UISegmentedControl) {
@@ -51,9 +57,12 @@ class MainTableViewController: UITableViewController {
         let fetchRequestOfMusic: NSFetchRequest<Music> = Music.fetchRequest()
         
         do {
-            books = try context.fetch(fetchRequestOfBook)
-            films = try context.fetch(fetchRequestOfFilm)
-            musics = try context.fetch(fetchRequestOfMusic)
+            profile.books = try context.fetch(fetchRequestOfBook)
+            profile.films = try context.fetch(fetchRequestOfFilm)
+            profile.musics = try context.fetch(fetchRequestOfMusic)
+//            books = try context.fetch(fetchRequestOfBook)
+//            films = try context.fetch(fetchRequestOfFilm)
+//            musics = try context.fetch(fetchRequestOfMusic)
         } catch let error as NSError {
             print(error.localizedDescription)
         }
@@ -62,8 +71,10 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addNotes.mainVC = self
+        
         tableView.tableFooterView = UIView()
-        setupSC()
+//        setupSC()
 
     }
     
@@ -124,13 +135,13 @@ class MainTableViewController: UITableViewController {
 //        present(alertController, animated: true)
 //    }
 //    
-    private func setupSC() {
-        segmentedControl.removeAllSegments()
-        segmentedControl.insertSegment(withTitle: "Book", at: 0, animated: true)
-        segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.insertSegment(withTitle: "Film", at: 1, animated: true)
-        segmentedControl.insertSegment(withTitle: "Music", at: 2, animated: true)
-    }
+//    private func setupSC() {
+//        segmentedControl.removeAllSegments()
+//        segmentedControl.insertSegment(withTitle: "Book", at: 0, animated: true)
+//        segmentedControl.selectedSegmentIndex = 0
+//        segmentedControl.insertSegment(withTitle: "Film", at: 1, animated: true)
+//        segmentedControl.insertSegment(withTitle: "Music", at: 2, animated: true)
+//    }
 //    
 //    private func saveBook(withTitle title: String) {
 //        let context = getContext()
@@ -194,12 +205,18 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            return books.count
-        case 1:
-            return films.count
-        case 2:
-            return musics.count
+//        case 0:
+//            return books.count
+//        case 1:
+//            return films.count
+//        case 2:
+//            return musics.count
+            case 0:
+                return profile.books.count
+            case 1:
+                return profile.films.count
+            case 2:
+                return profile.musics.count
         default:
             return 0
         }
@@ -214,12 +231,18 @@ class MainTableViewController: UITableViewController {
         //        let noteForMusic = musics[indexPath.row]
         
         switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            cell.textLabel?.text = books[indexPath.row].title
-        case 1:
-            cell.textLabel?.text = films[indexPath.row].title
-        case 2:
-            cell.textLabel?.text = musics[indexPath.row].title
+//        case 0:
+//            cell.textLabel?.text = books[indexPath.row].title
+//        case 1:
+//            cell.textLabel?.text = films[indexPath.row].title
+//        case 2:
+//            cell.textLabel?.text = musics[indexPath.row].title
+            case 0:
+                cell.textLabel?.text = profile.books[indexPath.row].title
+            case 1:
+                cell.textLabel?.text = profile.films[indexPath.row].title
+            case 2:
+                cell.textLabel?.text = profile.musics[indexPath.row].title
         default:
             break
         }
@@ -231,20 +254,26 @@ class MainTableViewController: UITableViewController {
             let context = getContext()
             switch segmentedControl.selectedSegmentIndex {
             case 0:
-                let book = books[indexPath.row]
-                books.remove(at: indexPath.row)
+//                let book = books[indexPath.row]
+//                books.remove(at: indexPath.row)
+                let book = profile.books[indexPath.row]
+                profile.books.remove(at: indexPath.row)
                 context.delete(book)
                 try! context.save()
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             case 1:
-                let book = films[indexPath.row]
-                films.remove(at: indexPath.row)
+//                let book = films[indexPath.row]
+//                films.remove(at: indexPath.row)
+                let book = profile.films[indexPath.row]
+                profile.films.remove(at: indexPath.row)
                 context.delete(book)
                 try! context.save()
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             case 2:
-                let book = musics[indexPath.row]
-                musics.remove(at: indexPath.row)
+//                let book = musics[indexPath.row]
+//                musics.remove(at: indexPath.row)
+                let book = profile.musics[indexPath.row]
+                profile.musics.remove(at: indexPath.row)
                 context.delete(book)
                 try! context.save()
                 tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -305,5 +334,6 @@ class MainTableViewController: UITableViewController {
      */
     
 }
+
 
 
