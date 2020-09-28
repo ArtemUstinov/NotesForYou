@@ -9,11 +9,7 @@
     <entity name="Music" representedClassName="Music" syncable="YES" codeGenerationType="class">
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
-        <attribute name="title" optional="YES" attributeType="String"/>
-    </entity>
     <elements>
-        <element name="Note" positionX="-63" positionY="-18" width="128" height="58"/>
         <element name="Book" positionX="-54" positionY="0" width="128" height="58"/>
         <element name="Film" positionX="-36" positionY="18" width="128" height="58"/>
         <element name="Music" positionX="-18" positionY="36" width="128" height="58"/>
