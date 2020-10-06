@@ -15,7 +15,9 @@ class AddNotes {
     
     public func setupAlert() {
         
-        let alertController = UIAlertController(title: "New note", message: "Please add a new note", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "New note",
+                                                message: "Please add a new note",
+                                                preferredStyle: .alert)
         
         let saveAction = UIAlertAction(title: "Save", style: .default) { action in
             let textField = alertController.textFields?.first
@@ -70,7 +72,8 @@ class AddNotes {
     private func saveBook(withTitle title: String) {
         let context = getContext()
         
-        guard let entity = NSEntityDescription.entity(forEntityName: "Book", in: context) else { return }
+        guard let entity = NSEntityDescription.entity(forEntityName: "Book",
+                                                      in: context) else { return }
         
         let noteObject = Book(entity: entity, insertInto: context)
         noteObject.title = title
@@ -86,7 +89,8 @@ class AddNotes {
     private func saveFilm(withTitle title: String) {
         let context = getContext()
         
-        guard let entity = NSEntityDescription.entity(forEntityName: "Film", in: context) else { return }
+        guard let entity = NSEntityDescription.entity(forEntityName: "Film",
+                                                      in: context) else { return }
         
         let noteObject = Film(entity: entity, insertInto: context)
         noteObject.title = title
@@ -102,7 +106,8 @@ class AddNotes {
     private func saveMusic(withTitle title: String) {
         let context = getContext()
         
-        guard let entity = NSEntityDescription.entity(forEntityName: "Music", in: context) else { return }
+        guard let entity = NSEntityDescription.entity(forEntityName: "Music",
+                                                      in: context) else { return }
         
         let noteObject = Music(entity: entity, insertInto: context)
         noteObject.title = title
@@ -114,6 +119,7 @@ class AddNotes {
             print(error.localizedDescription)
         }
     }
+    
     
     private func getContext() -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

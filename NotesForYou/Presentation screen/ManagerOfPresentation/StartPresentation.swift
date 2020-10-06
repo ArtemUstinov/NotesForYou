@@ -17,7 +17,7 @@ class StartPresentation {
     func startPresentation() {
         
         let userDefaults = UserDefaults.standard
-        let presentationWasViewed = userDefaults.bool(forKey: "firstPresentation")
+        let presentationWasViewed = userDefaults.bool(forKey: "firstPresentation6")
         
         if presentationWasViewed == false {
             if let pageVC = mainVC?.storyboard?.instantiateViewController(
