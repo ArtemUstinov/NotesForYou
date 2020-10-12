@@ -17,6 +17,8 @@
 		AC82587C251263C900C62660 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC82587B251263C900C62660 /* Assets.xcassets */; };
 		AC82587F251263C900C62660 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC82587D251263C900C62660 /* LaunchScreen.storyboard */; };
 		AC8258872512646A00C62660 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8258862512646A00C62660 /* MainTableViewController.swift */; };
+		ACE1F7862534B03800FDF763 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1F7852534B03800FDF763 /* Notifications.swift */; };
+		ACE1F7892534C69300FDF763 /* Note.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE1F7882534C69300FDF763 /* Note.png */; };
 		ACE7ADE325208B4B0077F6EE /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7ADE225208B4B0077F6EE /* PresentationViewController.swift */; };
 		ACE7ADE525208B5F0077F6EE /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7ADE425208B5F0077F6EE /* PageViewController.swift */; };
 		ACFE43BE251E337200735AFA /* AddNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFE43BD251E337200735AFA /* AddNotes.swift */; };
@@ -35,6 +37,8 @@
 		AC82587E251263C900C62660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC825880251263C900C62660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC8258862512646A00C62660 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		ACE1F7852534B03800FDF763 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		ACE1F7882534C69300FDF763 /* Note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Note.png; sourceTree = "<group>"; };
 		ACE7ADE225208B4B0077F6EE /* PresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		ACE7ADE425208B5F0077F6EE /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		ACFE43BD251E337200735AFA /* AddNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotes.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 		AC82588B2512648900C62660 /* App base data */ = {
 			isa = PBXGroup;
 			children = (
+				ACE1F7842534B00A00FDF763 /* Notifications */,
 				AC8258892512648000C62660 /* View */,
 				AC8258882512647A00C62660 /* Controllers */,
 			);
@@ -178,10 +183,27 @@
 		ACD75A712520DB3700FA1FD9 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				ACE1F7872534C66800FDF763 /* Png files */,
 				AC82587B251263C900C62660 /* Assets.xcassets */,
 				AC825880251263C900C62660 /* Info.plist */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		ACE1F7842534B00A00FDF763 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				ACE1F7852534B03800FDF763 /* Notifications.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		ACE1F7872534C66800FDF763 /* Png files */ = {
+			isa = PBXGroup;
+			children = (
+				ACE1F7882534C69300FDF763 /* Note.png */,
+			);
+			path = "Png files";
 			sourceTree = "<group>";
 		};
 		ACFA09782520A8AD007649B7 /* ManagerForNotes */ = {
@@ -250,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACE1F7892534C69300FDF763 /* Note.png in Resources */,
 				AC2F5610251E54E900E53B0D /* .gitignore in Resources */,
 				AC82587F251263C900C62660 /* LaunchScreen.storyboard in Resources */,
 				AC82587C251263C900C62660 /* Assets.xcassets in Resources */,
@@ -264,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACE1F7862534B03800FDF763 /* Notifications.swift in Sources */,
 				ACFE43BE251E337200735AFA /* AddNotes.swift in Sources */,
 				AC2A79DC251F4D19000899D3 /* Profile.swift in Sources */,
 				AC8258872512646A00C62660 /* MainTableViewController.swift in Sources */,

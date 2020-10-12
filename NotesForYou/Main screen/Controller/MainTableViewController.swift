@@ -11,6 +11,8 @@ import CoreData
 
 class MainTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    let notifications = Notifications()
+    
     var profile = Profile(books: [Book](), films: [Film](), musics: [Music]())
     
     let addNotes = AddNotes()
@@ -49,6 +51,9 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        notifications.scheduleNotification()
+
+        
         startPresentation.startPresentation()
     }
     
@@ -72,6 +77,7 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        notifications.scheduleNotification()
         
         addNotes.mainVC = self
         startPresentation.mainVC = self
