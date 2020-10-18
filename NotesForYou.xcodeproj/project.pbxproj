@@ -19,6 +19,7 @@
 		AC8258872512646A00C62660 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8258862512646A00C62660 /* MainTableViewController.swift */; };
 		ACE1F7862534B03800FDF763 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1F7852534B03800FDF763 /* Notifications.swift */; };
 		ACE1F7892534C69300FDF763 /* Note.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE1F7882534C69300FDF763 /* Note.png */; };
+		ACE1F7EB2538B96E00FDF763 /* pad.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE1F7EA2538B96E00FDF763 /* pad.png */; };
 		ACE7ADE325208B4B0077F6EE /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7ADE225208B4B0077F6EE /* PresentationViewController.swift */; };
 		ACE7ADE525208B5F0077F6EE /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7ADE425208B5F0077F6EE /* PageViewController.swift */; };
 		ACFE43BE251E337200735AFA /* AddNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFE43BD251E337200735AFA /* AddNotes.swift */; };
@@ -39,6 +40,7 @@
 		AC8258862512646A00C62660 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		ACE1F7852534B03800FDF763 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		ACE1F7882534C69300FDF763 /* Note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Note.png; sourceTree = "<group>"; };
+		ACE1F7EA2538B96E00FDF763 /* pad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pad.png; sourceTree = "<group>"; };
 		ACE7ADE225208B4B0077F6EE /* PresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		ACE7ADE425208B5F0077F6EE /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		ACFE43BD251E337200735AFA /* AddNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotes.swift; sourceTree = "<group>"; };
@@ -174,7 +176,6 @@
 		ACD75A702520DAF200FA1FD9 /* Git */ = {
 			isa = PBXGroup;
 			children = (
-				AC825878251263C600C62660 /* NotesForYou.xcdatamodeld */,
 				AC2F560F251E54E800E53B0D /* .gitignore */,
 			);
 			path = Git;
@@ -186,6 +187,7 @@
 				ACE1F7872534C66800FDF763 /* Png files */,
 				AC82587B251263C900C62660 /* Assets.xcassets */,
 				AC825880251263C900C62660 /* Info.plist */,
+				AC825878251263C600C62660 /* NotesForYou.xcdatamodeld */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				ACE1F7882534C69300FDF763 /* Note.png */,
+				ACE1F7EA2538B96E00FDF763 /* pad.png */,
 			);
 			path = "Png files";
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACE1F7EB2538B96E00FDF763 /* pad.png in Resources */,
 				ACE1F7892534C69300FDF763 /* Note.png in Resources */,
 				AC2F5610251E54E900E53B0D /* .gitignore in Resources */,
 				AC82587F251263C900C62660 /* LaunchScreen.storyboard in Resources */,
@@ -449,7 +453,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ArtemUstinov.NotesForYou;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -466,7 +470,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ArtemUstinov.NotesForYou;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

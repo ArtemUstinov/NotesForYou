@@ -34,7 +34,7 @@ class PageViewController: UIPageViewController {
         guard index < presentScreenContent.count else {
             
             let userDefaults = UserDefaults.standard
-            userDefaults.set(true, forKey: "firstPresentation6")
+            userDefaults.set(true, forKey: "firstPresentation")
             dismiss(animated: true, completion: nil)
             
             return nil

@@ -68,7 +68,6 @@ class AddNotes {
         mainVC?.present(alertController, animated: true)
     }
     
-    
     private func saveBook(withTitle title: String) {
         let context = getContext()
         
@@ -120,9 +119,10 @@ class AddNotes {
         }
     }
     
-    
     private func getContext() -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
 }
+
+

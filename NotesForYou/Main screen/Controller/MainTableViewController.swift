@@ -11,17 +11,15 @@ import CoreData
 
 class MainTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let notifications = Notifications()
-    
+    //MARK: - Properties:
     var profile = Profile(books: [Book](), films: [Film](), musics: [Music]())
     
+    let notifications = Notifications()
     let addNotes = AddNotes()
     let startPresentation = StartPresentation()
     
-    //MARK:- IBOutlet:
-    
+    //MARK:- IBOutlets:
     @IBOutlet weak var tableView: UITableView!
-    
     
     @IBOutlet weak var segmentedControl: UISegmentedControl! {
         didSet {
@@ -36,24 +34,19 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     //MARK:- IBActions:
     
     @IBAction func addNote(_ sender: UIBarButtonItem) {
-        
         addNotes.setupAlert()
         tableView.reloadData()
     }
     
     @IBAction func scPressed(_ sender: UISegmentedControl) {
-        
         tableView.reloadData()
     }
     
-    //MARK:- Views
-    
+    //MARK:- Override methods:
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         notifications.scheduleNotification()
-
-        
         startPresentation.startPresentation()
     }
     
@@ -86,11 +79,9 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     private func getContext() -> NSManagedObjectContext {
-        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
-    
     
     // MARK: - Table view data source
     
@@ -110,7 +101,6 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
             return 0
         }
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
