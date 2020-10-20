@@ -36,17 +36,17 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         let userAction = "User action"
         
         content.title = "Notification"
-        content.body = "This is example how to create"
+        content.body = "There is something interesting here😌"
         content.sound = UNNotificationSound.default
         content.badge = 1
         content.categoryIdentifier = userAction
         
-        guard let path = Bundle.main.path(forResource: "pad", ofType: "png") else { return }
+        guard let path = Bundle.main.path(forResource: "NotesForYou", ofType: "png") else { return }
         let url = URL(fileURLWithPath: path)
         
         do {
             let attachment = try UNNotificationAttachment(
-                identifier: "pad",
+                identifier: "NotesForYou",
                 url: url,
                 options: nil)
             
@@ -57,8 +57,8 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         
         let date = Date(timeIntervalSinceNow: 3600)
         var triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date)
-        triggerDaily.hour = 20
-        triggerDaily.minute = 14
+        triggerDaily.hour = 19
+        triggerDaily.minute = 30
         triggerDaily.second = 0
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily,

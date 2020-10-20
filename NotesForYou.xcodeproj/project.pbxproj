@@ -17,9 +17,8 @@
 		AC82587C251263C900C62660 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC82587B251263C900C62660 /* Assets.xcassets */; };
 		AC82587F251263C900C62660 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC82587D251263C900C62660 /* LaunchScreen.storyboard */; };
 		AC8258872512646A00C62660 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8258862512646A00C62660 /* MainTableViewController.swift */; };
+		ACAE4599253F746D00D4A928 /* NotesForYou.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAE4598253F746D00D4A928 /* NotesForYou.png */; };
 		ACE1F7862534B03800FDF763 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1F7852534B03800FDF763 /* Notifications.swift */; };
-		ACE1F7892534C69300FDF763 /* Note.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE1F7882534C69300FDF763 /* Note.png */; };
-		ACE1F7EB2538B96E00FDF763 /* pad.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE1F7EA2538B96E00FDF763 /* pad.png */; };
 		ACE7ADE325208B4B0077F6EE /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7ADE225208B4B0077F6EE /* PresentationViewController.swift */; };
 		ACE7ADE525208B5F0077F6EE /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7ADE425208B5F0077F6EE /* PageViewController.swift */; };
 		ACFE43BE251E337200735AFA /* AddNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFE43BD251E337200735AFA /* AddNotes.swift */; };
@@ -38,9 +37,8 @@
 		AC82587E251263C900C62660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC825880251263C900C62660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC8258862512646A00C62660 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		ACAE4598253F746D00D4A928 /* NotesForYou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotesForYou.png; sourceTree = "<group>"; };
 		ACE1F7852534B03800FDF763 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
-		ACE1F7882534C69300FDF763 /* Note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Note.png; sourceTree = "<group>"; };
-		ACE1F7EA2538B96E00FDF763 /* pad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pad.png; sourceTree = "<group>"; };
 		ACE7ADE225208B4B0077F6EE /* PresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		ACE7ADE425208B5F0077F6EE /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		ACFE43BD251E337200735AFA /* AddNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotes.swift; sourceTree = "<group>"; };
@@ -203,8 +201,7 @@
 		ACE1F7872534C66800FDF763 /* Png files */ = {
 			isa = PBXGroup;
 			children = (
-				ACE1F7882534C69300FDF763 /* Note.png */,
-				ACE1F7EA2538B96E00FDF763 /* pad.png */,
+				ACAE4598253F746D00D4A928 /* NotesForYou.png */,
 			);
 			path = "Png files";
 			sourceTree = "<group>";
@@ -275,10 +272,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACE1F7EB2538B96E00FDF763 /* pad.png in Resources */,
-				ACE1F7892534C69300FDF763 /* Note.png in Resources */,
 				AC2F5610251E54E900E53B0D /* .gitignore in Resources */,
 				AC82587F251263C900C62660 /* LaunchScreen.storyboard in Resources */,
+				ACAE4599253F746D00D4A928 /* NotesForYou.png in Resources */,
 				AC82587C251263C900C62660 /* Assets.xcassets in Resources */,
 				AC825877251263C600C62660 /* Main.storyboard in Resources */,
 			);

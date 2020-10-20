@@ -26,7 +26,7 @@ class AddNotes {
                 switch self.mainVC?.segmentedControl.selectedSegmentIndex {
                 case 0:
                     self.saveBook(withTitle: newNote)
-                    break
+                    break                    
                 case 1:
                     self.saveFilm(withTitle: newNote)
                     break
@@ -118,7 +118,7 @@ class AddNotes {
             print(error.localizedDescription)
         }
     }
-    
+        
     private func getContext() -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
