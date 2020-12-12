@@ -7,40 +7,20 @@
 //
 
 import UIKit
-import CoreData
 
-class MainTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    //MARK: - Properties:
-    var profile = Profile(books: [Book](), films: [Film](), musics: [Music]())
-    
-    let notifications = Notifications()
-    let addNotes = AddNotes()
-    let startPresentation = StartPresentation()
+class MainTableViewController: UIViewController {
     
     //MARK:- IBOutlets:
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    @IBOutlet weak var segmentedControl: UISegmentedControl! {
-        didSet {
-            segmentedControl.removeAllSegments()
-            segmentedControl.insertSegment(withTitle: "Book", at: 0, animated: true)
-            segmentedControl.selectedSegmentIndex = 0
-            segmentedControl.insertSegment(withTitle: "Film", at: 1, animated: true)
-            segmentedControl.insertSegment(withTitle: "Music", at: 2, animated: true)
-        }
-    }
+    //MARK: - Private Properties:
+    private var books: [Book] = []
+    private var films: [Film] = []
+    private var musics: [Music] = []
     
-    //MARK:- IBActions:
-    
-    @IBAction func addNote(_ sender: UIBarButtonItem) {
-        addNotes.setupAlert()
-        tableView.reloadData()
-    }
-    
-    @IBAction func scPressed(_ sender: UISegmentedControl) {
-        tableView.reloadData()
-    }
+    private let notifications = Notifications()
+    private let startPresentation = StartPresentation()    
     
     //MARK:- Override methods:
     override func viewDidAppear(_ animated: Bool) {
@@ -53,53 +33,88 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let context = getContext()
-        let fetchRequestOfBook: NSFetchRequest<Book> = Book.fetchRequest()
-        let fetchRequestOfFilm: NSFetchRequest<Film> = Film.fetchRequest()
-        let fetchRequestOfMusic: NSFetchRequest<Music> = Music.fetchRequest()
-        
-        do {
-            profile.books = try context.fetch(fetchRequestOfBook)
-            profile.films = try context.fetch(fetchRequestOfFilm)
-            profile.musics = try context.fetch(fetchRequestOfMusic)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        notifications.scheduleNotification()
+        setupSegmentedControl()
         
-        addNotes.mainVC = self
+        StorageManager.shared.fetchDataBook { (books, films, musics)  in
+            self.books = books ?? []
+            self.films = films ?? []
+            self.musics = musics ?? []
+            tableView.reloadData()
+        }
+        
+        notifications.scheduleNotification()
         startPresentation.mainVC = self
         
         tableView.tableFooterView = UIView()
     }
     
-    private func getContext() -> NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.persistentContainer.viewContext
+    //MARK:- IBActions:
+    @IBAction func addNote(_ sender: UIBarButtonItem) {
+        showAlert()
     }
     
-    // MARK: - Table view data source
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    @IBAction func scPressed(_ sender: UISegmentedControl) {
+        tableView.reloadData()
     }
     
+    private func setupSegmentedControl() {
+        segmentedControl.removeAllSegments()
+        segmentedControl.insertSegment(withTitle: "Book", at: 0, animated: true)
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.insertSegment(withTitle: "Film", at: 1, animated: true)
+        segmentedControl.insertSegment(withTitle: "Music", at: 2, animated: true)
+    }
+    
+    private func showAlert() {
+        
+        let alert = AlertController(title: "New note", message: "Please add a new note", preferredStyle: .alert)
+        
+        alert.action { newNote in
+            switch self.segmentedControl.selectedSegmentIndex {
+            case 0:
+                StorageManager.shared.saveTask(title: newNote, completionBook: { book in
+                    print(book)
+                    self.books.append(book)
+                    self.tableView.insertRows(at: [IndexPath(row: self.books.count - 1, section: 0)], with: .automatic)
+                })
+            case 1:
+                StorageManager.shared.saveTask(title: newNote, completionFilm: { film in
+                    self.films.append(film)
+                    self.tableView.insertRows(at: [IndexPath(row: self.films.count - 1, section: 0)], with: .automatic)
+                })
+            case 2:
+                StorageManager.shared.saveTask(title: newNote, completionMusic: { music in
+                    self.musics.append(music)
+                    self.tableView.insertRows(at: [IndexPath(row: self.musics.count - 1, section: 0)], with: .automatic)
+                })
+            default:
+                print("")
+            }
+        }
+        present(alert, animated: true)
+    }
+}
+
+extension MainTableViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    // MARK: Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            return profile.books.count
+            return books.count
         case 1:
-            return profile.films.count
+            return films.count
         case 2:
-            return profile.musics.count
+            return musics.count
         default:
-            return 0
+            print("You have a new segment index")
         }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,38 +122,35 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            cell.textLabel?.text = profile.books[indexPath.row].title
+            cell.textLabel?.text = books[indexPath.row].title
         case 1:
-            cell.textLabel?.text = profile.films[indexPath.row].title
+            cell.textLabel?.text = films[indexPath.row].title
         case 2:
-            cell.textLabel?.text = profile.musics[indexPath.row].title
+            cell.textLabel?.text = musics[indexPath.row].title
         default:
-            break
+            print("You have a new segment index")
         }
         return cell
     }
     
+    //MARK: - Table view Delegate
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let context = getContext()
             switch segmentedControl.selectedSegmentIndex {
             case 0:
-                let book = profile.books[indexPath.row]
-                profile.books.remove(at: indexPath.row)
-                context.delete(book)
-                try! context.save()
+                let book = books[indexPath.row]
+                StorageManager.shared.deleteBook(book)
+                books.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             case 1:
-                let book = profile.films[indexPath.row]
-                profile.films.remove(at: indexPath.row)
-                context.delete(book)
-                try! context.save()
+                let film = films[indexPath.row]
+                StorageManager.shared.deleteBook(film)
+                films.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             case 2:
-                let book = profile.musics[indexPath.row]
-                profile.musics.remove(at: indexPath.row)
-                context.delete(book)
-                try! context.save()
+                let music = musics[indexPath.row]
+                StorageManager.shared.deleteBook(music)
+                musics.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             default:
                 break
@@ -148,8 +160,9 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }    
+    }
 }
+
 
 
 

@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +27,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Too much text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mz1-8y-CEZ">
                                 <rect key="frame" x="20" y="431" width="374" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="374" id="Y2y-6I-1Q2"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="374" id="Y2y-6I-1Q2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Cochin-Italic" family="Cochin" pointSize="30"/>
                                 <nil key="textColor"/>
@@ -93,7 +94,7 @@
                                 </connections>
                             </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="background"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="DAD-14-7yu" secondAttribute="bottom" id="FrX-jg-Mje"/>
                             <constraint firstItem="DAD-14-7yu" firstAttribute="top" secondItem="8oB-XB-iCY" secondAttribute="bottom" constant="1" id="JQb-f2-1co"/>
@@ -143,4 +144,9 @@
             <point key="canvasLocation" x="-109" y="117"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
