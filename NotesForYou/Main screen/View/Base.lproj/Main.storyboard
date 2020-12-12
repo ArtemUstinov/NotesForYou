@@ -59,7 +59,7 @@
         <!--Notes for you-->
         <scene sceneID="Ujq-4X-WR3">
             <objects>
-                <viewController id="4pa-Jd-56z" customClass="MainTableViewController" customModule="NotesForYou" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4pa-Jd-56z" customClass="MainViewController" customModule="NotesForYou" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mgy-NW-mvC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,7 +90,7 @@
                                     <segment title="Second"/>
                                 </segments>
                                 <connections>
-                                    <action selector="scPressed:" destination="4pa-Jd-56z" eventType="valueChanged" id="G4F-bA-bk5"/>
+                                    <action selector="scPressed:" destination="4pa-Jd-56z" eventType="valueChanged" id="hug-LD-zBQ"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>

@@ -82,6 +82,17 @@ class StorageManager {
         saveContext()
     }
     
+    func editTask(newTask: String, book: Book? = nil, film: Film? = nil, music: Music? = nil) {
+        if book != nil {
+            book?.title = newTask
+        } else if film != nil {
+            film?.title = newTask
+        } else {
+            music?.title = newTask
+        }
+        saveContext()
+    }
+    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {

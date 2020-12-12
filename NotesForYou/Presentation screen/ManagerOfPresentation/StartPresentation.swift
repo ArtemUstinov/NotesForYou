@@ -11,8 +11,7 @@ import UIKit
 
 class StartPresentation {
     
-    weak var mainVC: MainTableViewController?
-    
+    weak var mainVC: MainViewController?
     
     func startPresentation() {
         

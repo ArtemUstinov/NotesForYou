@@ -16,9 +16,10 @@
 		AC82587A251263C600C62660 /* NotesForYou.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC825878251263C600C62660 /* NotesForYou.xcdatamodeld */; };
 		AC82587C251263C900C62660 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC82587B251263C900C62660 /* Assets.xcassets */; };
 		AC82587F251263C900C62660 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC82587D251263C900C62660 /* LaunchScreen.storyboard */; };
-		AC8258872512646A00C62660 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8258862512646A00C62660 /* MainTableViewController.swift */; };
+		AC8258872512646A00C62660 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8258862512646A00C62660 /* MainViewController.swift */; };
 		ACAE4599253F746D00D4A928 /* NotesForYou.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAE4598253F746D00D4A928 /* NotesForYou.png */; };
 		ACDBC94B25850780009D515A /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDBC94A25850780009D515A /* AlertController.swift */; };
+		ACDBC94D25852D43009D515A /* Extension + MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDBC94C25852D43009D515A /* Extension + MainViewController.swift */; };
 		ACE1F7862534B03800FDF763 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1F7852534B03800FDF763 /* Notifications.swift */; };
 		ACE7ADE325208B4B0077F6EE /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7ADE225208B4B0077F6EE /* PresentationViewController.swift */; };
 		ACE7ADE525208B5F0077F6EE /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7ADE425208B5F0077F6EE /* PageViewController.swift */; };
@@ -36,9 +37,10 @@
 		AC82587B251263C900C62660 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC82587E251263C900C62660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC825880251263C900C62660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC8258862512646A00C62660 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		AC8258862512646A00C62660 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		ACAE4598253F746D00D4A928 /* NotesForYou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotesForYou.png; sourceTree = "<group>"; };
 		ACDBC94A25850780009D515A /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		ACDBC94C25852D43009D515A /* Extension + MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + MainViewController.swift"; sourceTree = "<group>"; };
 		ACE1F7852534B03800FDF763 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		ACE7ADE225208B4B0077F6EE /* PresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		ACE7ADE425208B5F0077F6EE /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +113,6 @@
 				AC82588B2512648900C62660 /* App base data */,
 				AC3790D02520A6C70089B562 /* Presentation screen */,
 				AC82588F251264A800C62660 /* Main screen */,
-				ACDBC9492585075F009D515A /* Extensions */,
 				ACD75A712520DB3700FA1FD9 /* Supporting files */,
 				ACD75A702520DAF200FA1FD9 /* Git */,
 			);
@@ -139,8 +140,9 @@
 		AC82588C2512649800C62660 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AC8258862512646A00C62660 /* MainTableViewController.swift */,
+				AC8258862512646A00C62660 /* MainViewController.swift */,
 				ACDBC94A25850780009D515A /* AlertController.swift */,
+				ACDBC9492585075F009D515A /* Extensions */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,6 +188,7 @@
 		ACDBC9492585075F009D515A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				ACDBC94C25852D43009D515A /* Extension + MainViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -282,11 +285,12 @@
 				ACE1F7862534B03800FDF763 /* Notifications.swift in Sources */,
 				ACDBC94B25850780009D515A /* AlertController.swift in Sources */,
 				AC6BEEA5257E3E1500F416AA /* StorageManager.swift in Sources */,
-				AC8258872512646A00C62660 /* MainTableViewController.swift in Sources */,
+				AC8258872512646A00C62660 /* MainViewController.swift in Sources */,
 				AC82587A251263C600C62660 /* NotesForYou.xcdatamodeld in Sources */,
 				AC825870251263C600C62660 /* AppDelegate.swift in Sources */,
 				ACE7ADE325208B4B0077F6EE /* PresentationViewController.swift in Sources */,
 				AC825872251263C600C62660 /* SceneDelegate.swift in Sources */,
+				ACDBC94D25852D43009D515A /* Extension + MainViewController.swift in Sources */,
 				AC3790CF2520A4BC0089B562 /* StartPresentation.swift in Sources */,
 				ACE7ADE525208B5F0077F6EE /* PageViewController.swift in Sources */,
 			);
